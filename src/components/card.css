@@ -1,0 +1,20 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: blue 2px solid;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 20px;
+    background-color: beige;
+
+}
+.header{
+    display: flex;
+    gap: 20px;
+}
+.temps{
+    display: flex;
+    flex-direction: column;
+}
