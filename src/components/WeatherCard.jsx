@@ -1,9 +1,11 @@
 import React from 'react'
 import './card.css' 
 
-export default function WeatherCard({data}) {
+export default function WeatherCard(props) {
     let icon=props.data.day.condition.icon
     let iconText=props.data.day.condition.text
+    console.log(props.data)
+
   return (
     <div className='container'>
         <div className='header'>
