@@ -6,9 +6,13 @@ import axios from 'axios'
 
 function App() {
   useEffect(()=>{
-    axios.get("http://api.weatherapi.com/v1/forecast.json?key=3d13f01695304121a59160701231402&q=London&days=2&aqi=no&alerts=no&fbclid=IwAR1SP9poqPENmPcTlae5wiSDPPRfQgDSLWuIGwVW01Ubxmg4CfXw29tR2W4")
+    let url = "http://api.weatherapi.com/v1/forecast.json?key=3d13f01695304121a59160701231402&q=London&days=7&aqi=no&alerts=no&fbclid=IwAR1SP9poqPENmPcTlae5wiSDPPRfQgDSLWuIGwVW01Ubxmg4CfXw29tR2W4"
+    axios.get(url,{
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
+    })
     .then(res=>{
-      //console.log(res.data)
+    console.log(res.data)
       setData(res.data)
     })
       .catch(err=>console.log(err))
@@ -17,8 +21,9 @@ function App() {
 
   return(
     <>
-    <WeatherCard data={data.forecast.forecastday[0]}/>
-    <WeatherCard data={data.forecast.forecastday[1]}/>
+    {data.forecast ? data.forecast.forecastday.map((day,index)=>{
+      return <WeatherCard key={index} data={day}/>
+    }) : null}
     </>
   )
 
